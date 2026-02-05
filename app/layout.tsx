@@ -1,6 +1,7 @@
 import React from "react"
 import type { Metadata } from 'next'
 import { ThemeProvider } from '@/components/theme-provider'
+import { ServiceWorkerRegistration } from '@/components/service-worker-registration'
 
 import './globals.css'
 import { spaceGrotesk, spaceMono } from "@/lib/fonts"
@@ -8,6 +9,18 @@ import { spaceGrotesk, spaceMono } from "@/lib/fonts"
 export const metadata: Metadata = {
   title: 'OpenAPI WYSIWYG Editor',
   description: 'A visual editor for creating and editing OpenAPI 3.x specifications',
+  manifest: '/manifest.json',
+  themeColor: '#ffc61a',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'API Author',
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
 }
 
 export default function RootLayout({
@@ -21,6 +34,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="API Author" />
       </head>
       <body className="font-sans antialiased">
+        <ServiceWorkerRegistration />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
