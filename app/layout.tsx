@@ -1,5 +1,5 @@
 import React from "react"
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { ServiceWorkerRegistration } from '@/components/service-worker-registration'
 
@@ -10,17 +10,18 @@ export const metadata: Metadata = {
   title: 'OpenAPI WYSIWYG Editor',
   description: 'A visual editor for creating and editing OpenAPI 3.x specifications',
   manifest: '/manifest.json',
-  themeColor: '#ffc61a',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
     title: 'API Author',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#ffc61a',
 }
 
 export default function RootLayout({
