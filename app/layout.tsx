@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { ServiceWorkerRegistration } from '@/components/service-worker-registration'
+import { Analytics } from '@vercel/analytics/next'
 
 import './globals.css'
 import { spaceGrotesk, spaceMono } from "@/lib/fonts"
@@ -44,6 +45,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
